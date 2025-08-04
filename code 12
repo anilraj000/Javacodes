@@ -1,0 +1,47 @@
+import java.time.LocalDate;
+import java.time.Period;
+public class PersonMain {
+    public static void main(String[] args) {
+        Person person = new Person("Chamarthi", "Anil Kumar Raju", 'M', 70.0, LocalDate.of(2003, 03,30));
+        person.setPhoneNumber("9000887461");
+        System.out.println("Person Details:\n");
+        System.out.println(" ______________\n");
+        person.displayDetails();
+    }
+}
+
+class Person {
+    private String firstName;
+    private String lastName;
+    private char gender;
+    private double weight;
+    private String phoneNumber;
+    private LocalDate dob;
+    public Person(String firstName, String lastName, char gender, double weight, LocalDate dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.weight = weight;
+        this.dob = dob;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public int calculateAge() {
+        return Period.between(dob, LocalDate.now()).getYears();
+    }
+
+    public String getFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+    }
+
+    public void displayDetails() {
+        System.out.println("Full Name: " + getFullName(firstName, lastName));
+        System.out.println("Gender: " + gender);
+        System.out.println("Age: " + calculateAge());
+        System.out.println("Weight: " + weight);
+        System.out.println("Phone Number: " + phoneNumber);
+    }
+}
