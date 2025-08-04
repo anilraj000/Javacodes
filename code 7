@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class PositiveStringChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        boolean isPositive = isPositiveString(input);
+
+        if (isPositive) {
+            System.out.println("The string is a positive string.");
+        } else {
+            System.out.println("The string is not a positive string.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean isPositiveString(String str) {
+        str = str.toUpperCase(); // Case-insensitive comparison
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) > str.charAt(i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
