@@ -2,10 +2,10 @@ public class PersonalDetails {
        public static void main(String[] args) {
         System.out.println(" Person Details:");
         System.out.println(" ______________\n");
-        System.out.println(" First Name: Divya");
-        System.out.println(" Last Name: Bharathi");
-        System.out.println(" Gender: F");
-        System.out.println(" Age: 20");
-        System.out.println(" Weight: 85.55");
+        System.out.println(" First Name: Chamarthi");
+        System.out.println(" Last Name: Anil Kumar Raju");
+        System.out.println(" Gender: M");
+        System.out.println(" Age: 22");
+        System.out.println(" Weight: 70");
     }
 }
