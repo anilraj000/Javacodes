@@ -1,0 +1,23 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Scanner;
+public class DateDurationCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first date (yyyy-mm-dd): ");
+        String date1Str = scanner.nextLine();
+        LocalDate date1 = LocalDate.parse(date1Str);
+        System.out.print("Enter the second date (yyyy-mm-dd): ");
+        String date2Str = scanner.nextLine();
+        LocalDate date2 = LocalDate.parse(date2Str);
+        Period period = Period.between(date1, date2);
+        int years = Math.abs(period.getYears());
+        int months = Math.abs(period.getMonths());
+        int days = Math.abs(period.getDays());
+        System.out.println("\nDuration between the dates:");
+        System.out.println("Years : " + years);
+        System.out.println("Months: " + months);
+        System.out.println("Days  : " + days);
+        scanner.close();
+    }
+}
