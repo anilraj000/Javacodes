@@ -1,0 +1,22 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+public class WarrantyCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter product purchase date (YYYY-MM-DD): ");
+        String purchaseDateInput = scanner.nextLine();
+        System.out.print("Enter warranty period in years: ");
+        int years = scanner.nextInt();
+        System.out.print("Enter warranty period in months: ");
+        int months = scanner.nextInt();
+        LocalDate expiryDate = calculateWarrantyExpiry(purchaseDateInput, years, months);
+        System.out.println("Warranty expires on: " + expiryDate);
+        scanner.close();
+    }
+    public static LocalDate calculateWarrantyExpiry(String purchaseDateStr, int years, int months) {
+        LocalDate purchaseDate = LocalDate.parse(purchaseDateStr);
+        return purchaseDate.plusYears(years).plusMonths(months);
+    }
+}
+
