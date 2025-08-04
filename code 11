@@ -1,0 +1,24 @@
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+public class ZoneTimePrinter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Zone ID (e.g., America/New_York, Europe/London, Asia/Tokyo): ");
+        String zoneIdInput = scanner.nextLine();
+        printDateTimeByZone(zoneIdInput);
+        scanner.close();
+    }
+    public static void printDateTimeByZone(String zoneIdStr) {
+        try {
+            ZoneId zoneId = ZoneId.of(zoneIdStr);
+            ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z");
+            System.out.println("Current date and time in " + zoneIdStr + ": " + zonedDateTime.format(formatter));
+        } catch (Exception e) {
+            System.out.println("Invalid Zone ID: " + zoneIdStr);
+        }
+    }
+}
+
