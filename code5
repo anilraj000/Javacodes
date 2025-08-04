@@ -1,0 +1,63 @@
+public class PersonMain {
+    public static void main(String[] args) {
+        Person person = new Person("Chamarthi", "Anil Kumar Raju", Gender.M, 22, 70);
+        person.setPhoneNumber("9000887461");
+        System.out.println("Person Details:\n");
+        System.out.println(" ______________\n");
+        person.displayDetails();
+    }
+}
+
+enum Gender {
+    M, F
+}
+
+class Person {
+    private String firstName;
+    private String lastName;
+    private Gender gender;
+    private int age;
+    private double weight;
+    private String phoneNumber;
+
+    public Person(String firstName, String lastName, Gender gender, int age, double weight) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.weight = weight;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void displayDetails() {
+        System.out.println("First Name: " + firstName + 
+                           "  Last Name: " + lastName + 
+                           "  Gender: " + gender);
+        System.out.println("Age: " + age);
+        System.out.println("Weight: " + weight);
+        System.out.println("Phone Number: " + phoneNumber);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+}
